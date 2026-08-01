@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
+import Image from "next/image";
 
 const services = [
   ["01", "Rock excavation", "Controlled removal through excavator-assisted breaking and precise bench preparation."],
@@ -125,7 +126,7 @@ export default function Home() {
             </div>
           </div>
           <figure className="about-visual" data-reveal>
-            <img src="/media/site-5.png" alt="Excavator loading earth into a tractor trailer" />
+            <Image src="/media/site-5.png" alt="Excavator loading earth into a tractor trailer" width={1200} height={1600} sizes="(max-width: 1024px) 90vw, 40vw" />
             <figcaption><span>Real work. Real sites.</span><small>Bulk excavation & loading</small></figcaption>
           </figure>
         </div>
@@ -150,13 +151,13 @@ export default function Home() {
           <h2>Capability,<br /><em>proven on site.</em></h2>
         </div>
         <article className="project-feature" data-reveal>
-          <img src="/media/site-2.png" alt="Excavator positioned to remove a large site boulder" />
+          <Image src="/media/site-2.png" alt="Excavator positioned to remove a large site boulder" width={1600} height={1200} sizes="90vw" />
           <div className="project-number">01 / 03</div>
           <div className="project-copy"><small>Rock & obstruction removal</small><h3>Large-boulder<br />excavation</h3><p>Excavator-controlled rock handling beside an existing boundary—sequenced to protect access and surrounding works.</p><ul><li>Tata Hitachi excavator</li><li>Constrained work zone</li><li>Active supervision</li></ul></div>
         </article>
         <div className="project-pair">
-          <article data-reveal><img src="/media/site-6.png" alt="Workers carrying out rock excavation in a foundation area" /><div><small>Foundation preparation</small><h3>Controlled rock breaking</h3><span>02 ↗</span></div></article>
-          <article data-reveal><img src="/media/site-5.png" alt="Excavator loading earth for removal" /><div><small>Bulk earthwork</small><h3>Cut, load & haul</h3><span>03 ↗</span></div></article>
+          <article data-reveal><Image src="/media/site-6.png" alt="Workers carrying out rock excavation in a foundation area" width={1600} height={1200} sizes="(max-width: 700px) 90vw, 44vw" /><div><small>Foundation preparation</small><h3>Controlled rock breaking</h3><span>02 ↗</span></div></article>
+          <article data-reveal><Image src="/media/site-5.png" alt="Excavator loading earth for removal" width={1200} height={1600} sizes="(max-width: 700px) 90vw, 44vw" /><div><small>Bulk earthwork</small><h3>Cut, load & haul</h3><span>03 ↗</span></div></article>
         </div>
       </section>
 
@@ -167,7 +168,7 @@ export default function Home() {
           <p>Equipment selection is matched to strata, access, output and working radius—not simply availability.</p>
           <div className="equipment-tags"><span>Hydraulic excavator</span><span>Rock bucket</span><span>Breaker support</span><span>Tractor & tipper logistics</span></div>
         </div>
-        <img src="/media/site-1.png" alt="Tata Hitachi EX130 excavator on a rock excavation site" data-reveal />
+        <Image src="/media/site-1.png" alt="Tata Hitachi EX130 excavator on a rock excavation site" width={1600} height={1200} sizes="(max-width: 1024px) 100vw, 62vw" data-reveal />
       </section>
 
       <section className="section process" id="process">
@@ -178,7 +179,7 @@ export default function Home() {
       </section>
 
       <section className="safety" id="safety">
-        <div className="safety-image"><img src="/media/site-6.png" alt="Helmeted workers carrying out supervised rock work" /></div>
+        <div className="safety-image"><Image src="/media/site-6.png" alt="Helmeted workers carrying out supervised rock work" width={1600} height={1200} sizes="(max-width: 1024px) 100vw, 50vw" /></div>
         <div className="safety-copy" data-reveal>
           <div className="section-kicker"><span>06</span> Safety is the method</div>
           <h2>Productivity only counts<br />when people are <em>protected.</em></h2>
@@ -190,15 +191,15 @@ export default function Home() {
       <section className="section video-section">
         <div className="section-head" data-reveal><div className="section-kicker"><span>07</span> In the field</div><h2>See the work<br /><em>in motion.</em></h2></div>
         <div className="video-grid">
-          <button onClick={() => setActiveVideo("/media/rock-excavation.mp4")} data-reveal><img src="/media/site-3.png" alt="Rock excavation video cover" /><span className="play">▶</span><div><small>Field film 01</small><b>Boulder removal operation</b></div></button>
-          <button onClick={() => setActiveVideo("/media/earthwork.mp4")} data-reveal><img src="/media/site-5.png" alt="Earthwork video cover" /><span className="play">▶</span><div><small>Field film 02</small><b>Earth excavation & loading</b></div></button>
+          <button type="button" onClick={() => setActiveVideo("/media/rock-excavation.mp4")} data-reveal><Image src="/media/site-3.png" alt="Rock excavation video cover" width={1600} height={1200} sizes="(max-width: 700px) 90vw, 44vw" /><span className="play">▶</span><div><small>Field film 01</small><b>Boulder removal operation</b></div></button>
+          <button type="button" onClick={() => setActiveVideo("/media/earthwork.mp4")} data-reveal><Image src="/media/site-5.png" alt="Earthwork video cover" width={1200} height={1600} sizes="(max-width: 700px) 90vw, 44vw" /><span className="play">▶</span><div><small>Field film 02</small><b>Earth excavation & loading</b></div></button>
         </div>
       </section>
 
       <section className="gallery-section" id="gallery">
         <div className="gallery-head" data-reveal><div><div className="section-kicker"><span>08</span> Site archive</div><h2>Work, documented.</h2></div><p>No stock imagery.<br />Every frame is from the field.</p></div>
         <div className="gallery-grid">
-          {gallery.map((image, index) => <button key={image.src} className={`gallery-${index + 1}`} onClick={() => setActiveImage(image)} data-reveal><img src={image.src} alt={image.alt} loading="lazy" /><span>View image ↗</span></button>)}
+          {gallery.map((image, index) => <button type="button" key={image.src} className={`gallery-${index + 1}`} onClick={() => setActiveImage(image)} data-reveal><Image src={image.src} alt={image.alt} width={index === 4 ? 1200 : 1600} height={index === 4 ? 1600 : 1200} sizes="(max-width: 700px) 45vw, 30vw" /><span>View image ↗</span></button>)}
         </div>
       </section>
 
@@ -243,8 +244,8 @@ export default function Home() {
         <div className="footer-bottom"><span>© {new Date().getFullYear()} Niraj Shrivastav Construction</span><span>Heavy civil • Earthwork • Excavation</span><a href="#top">Back to top ↑</a></div>
       </footer>
 
-      {activeVideo && <div className="modal" role="dialog" aria-modal="true" aria-label="Project video"><button className="modal-close" onClick={() => setActiveVideo(null)}>Close ×</button><video src={activeVideo} autoPlay controls playsInline /></div>}
-      {activeImage && <div className="modal" role="dialog" aria-modal="true" aria-label="Gallery image"><button className="modal-close" onClick={() => setActiveImage(null)}>Close ×</button><img src={activeImage.src} alt={activeImage.alt} /></div>}
+      {activeVideo && <div className="modal" role="dialog" aria-modal="true" aria-label="Project video"><button type="button" className="modal-close" onClick={() => setActiveVideo(null)}>Close ×</button><video src={activeVideo} autoPlay controls playsInline preload="metadata" /></div>}
+      {activeImage && <div className="modal" role="dialog" aria-modal="true" aria-label="Gallery image"><button type="button" className="modal-close" onClick={() => setActiveImage(null)}>Close ×</button><Image src={activeImage.src} alt={activeImage.alt} width={1600} height={1200} sizes="90vw" /></div>}
     </main>
   );
 }

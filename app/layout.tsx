@@ -5,8 +5,13 @@ import "./globals.css";
 const geist = Geist({ variable: "--font-sans", subsets: ["latin"] });
 const mono = Geist_Mono({ variable: "--font-mono", subsets: ["latin"] });
 
+const productionUrl = process.env.NEXT_PUBLIC_SITE_URL
+  ?? (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3000");
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://niraj-shrivastav-construction.example"),
+  metadataBase: new URL(productionUrl),
   title: "Niraj Shrivastav Construction | Excavation & Earthwork",
   description: "Rock excavation, bulk earthwork, boulder removal and site development for industrial, commercial and infrastructure projects.",
   openGraph: {
