@@ -12,16 +12,41 @@ const productionUrl = process.env.NEXT_PUBLIC_SITE_URL
 
 export const metadata: Metadata = {
   metadataBase: new URL(productionUrl),
-  title: "Niraj Shrivastav Construction | Excavation & Earthwork",
-  description: "Rock excavation, bulk earthwork, boulder removal and site development for industrial, commercial and infrastructure projects.",
+  title: "Futuregenic Enterprises | Construction & Infrastructure Company",
+  description: "Futuregenic Enterprises Private Limited provides building construction, water treatment plant, sewage treatment plant, earthwork and rock breaking services.",
+  keywords: ["Construction Company", "Building Construction", "Water Treatment Plant", "Sewage Treatment Plant", "Earthwork Contractor", "Rock Breaking Services", "Civil Construction", "Infrastructure Development"],
   openGraph: {
-    title: "Niraj Shrivastav Construction",
-    description: "Engineering strong foundations. Shaping tomorrow.",
+    title: "Futuregenic Enterprises Private Limited",
+    description: "Construction. Infrastructure. Engineering.",
     type: "website",
+    siteName: "Futuregenic Enterprises Private Limited",
   },
-  twitter: { card: "summary_large_image", title: "Niraj Shrivastav Construction", description: "Heavy civil capability for demanding ground conditions." },
+  twitter: { card: "summary", title: "Futuregenic Enterprises Private Limited", description: "Construction. Infrastructure. Engineering." },
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Futuregenic Enterprises Private Limited",
+  description: "Construction and infrastructure company serving building, water treatment, sewage treatment, earthwork and rock breaking requirements.",
+  foundingDate: "2026-02-25",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "101 Pratap Nagar, Mayur Vihar, Phase-1",
+    addressLocality: "East Delhi",
+    postalCode: "110091",
+    addressRegion: "Delhi",
+    addressCountry: "IN",
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body className={`${geist.variable} ${mono.variable}`}>{children}</body></html>;
+  return (
+    <html lang="en">
+      <body className={`${geist.variable} ${mono.variable}`}>
+        {children}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
+      </body>
+    </html>
+  );
 }
